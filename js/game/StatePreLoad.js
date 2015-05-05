@@ -15,7 +15,7 @@ function StatePreLoad()
 		splash.Load(SPLASH_LINK + HostImagePath() + "/bg/splash_bg.jpg");
         splash.SetPos(Graphic.width >> 1, Graphic.height >> 1);
 		splash.SetAnchor(H_CENTER|V_CENTER);
-		splash.SetScale(1.5,1.5);
+		//splash.SetScale(1.5,1.5);
 		
 		//splash.SetRotate(90); //realign in splash menu
 		
