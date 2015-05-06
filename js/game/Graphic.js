@@ -87,12 +87,14 @@ function Graphic() {
         
         //detect 
         
-        if(DEBUG)
+        if(!DEBUG)
         {
+        	console.log("NOT DEBUG")
             isPortrait = window.matchMedia("(orientation: portrait)").matches;
         }
         else
         {
+        	console.log("DEBUG")
             isPortrait = size.width < size.height;
         }
         

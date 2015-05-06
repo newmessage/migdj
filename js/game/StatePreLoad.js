@@ -15,19 +15,27 @@ function StatePreLoad()
 		splash.Load(SPLASH_LINK + HostImagePath() + "/bg/splash_bg.jpg");
         splash.SetPos(Graphic.width >> 1, Graphic.height >> 1);
 		splash.SetAnchor(H_CENTER|V_CENTER);
-		//splash.SetRotate(90);
+		//No orientation if Android
+		if (DEVICE_INFO.OS != DEVICE_OS.ANDROID)
+		{
+			splash.SetRotate(90);
+		}
 		
 		splash_button = new Object();
 		splash_button.Load(SPLASH_BTN_LINK + HostImagePath() + "/bg/splash_btn_"+ GAME_COUNTRY.language +".jpg");
         splash_button.SetPos(Graphic.width >> 1, Graphic.height >> 1);
 		splash_button.SetAnchor(H_CENTER|V_CENTER);
 		splash_button.SetPos(ScreenDefine.SPLASH.BUTTON_OFFSET_X, (Graphic.height >> 1) + ScreenDefine.SPLASH.BUTTON_OFFSET_Y);
-		//splash_button.SetRotate(90);
+		splash_button.SetRotate(90);
 		
 		currency_icon = new Object();
 		currency_icon.Load(CURRENCY_ICO_LINK + HostImagePath() + "/button/currency_icon_large.png");
 		currency_icon.SetAnchor(H_CENTER|V_CENTER);
-		//currency_icon.SetRotate(90);
+		//No orientation if Android
+		if (DEVICE_INFO.OS == DEVICE_OS.ANDROID)
+		{
+			currency_icon.SetRotate(90);	
+		}
 		currency_icon.SetScale(2, 2);
 	};
     
@@ -85,6 +93,7 @@ function StatePreLoad()
 
 		if (creative_type_id == 27 || creative_type_id == '27')
 		{
+			console.log ("creative_type_id : "+creative_type_id)
 			if(currency_icon != null)
 			{
 				currency_icon.SetPos((Graphic.width >> 1)+ScreenDefine.SPLASH.CURRENCY_ICON_OFFSET_X, ScreenDefine.SPLASH.CURRENCY_ICON_OFFSET_Y + Graphic.GetTextWidth(GetText().SPLASH_TEXT_GET, ScreenDefine.FONT_SIZE_SPLASH));
