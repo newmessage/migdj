@@ -15,19 +15,19 @@ function StatePreLoad()
 		splash.Load(SPLASH_LINK + HostImagePath() + "/bg/splash_bg.jpg");
         splash.SetPos(Graphic.width >> 1, Graphic.height >> 1);
 		splash.SetAnchor(H_CENTER|V_CENTER);
-		splash.SetRotate(90);
+		//splash.SetRotate(90);
 		
 		splash_button = new Object();
 		splash_button.Load(SPLASH_BTN_LINK + HostImagePath() + "/bg/splash_btn_"+ GAME_COUNTRY.language +".jpg");
         splash_button.SetPos(Graphic.width >> 1, Graphic.height >> 1);
 		splash_button.SetAnchor(H_CENTER|V_CENTER);
 		splash_button.SetPos(ScreenDefine.SPLASH.BUTTON_OFFSET_X, (Graphic.height >> 1) + ScreenDefine.SPLASH.BUTTON_OFFSET_Y);
-		splash_button.SetRotate(90);
+		//splash_button.SetRotate(90);
 		
 		currency_icon = new Object();
 		currency_icon.Load(CURRENCY_ICO_LINK + HostImagePath() + "/button/currency_icon_large.png");
 		currency_icon.SetAnchor(H_CENTER|V_CENTER);
-		currency_icon.SetRotate(90);
+		//currency_icon.SetRotate(90);
 		currency_icon.SetScale(2, 2);
 	};
     
