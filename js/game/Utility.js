@@ -12,6 +12,10 @@ function Utility() {
 		{
 			  console = {};
 		}
+		else
+		{
+			console.log(str);
+		}
 	};
     this.Alert = function(str)
     {

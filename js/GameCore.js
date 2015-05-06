@@ -45,7 +45,7 @@ function GameCore() {
         //init sound
         AudioManager.Init();
         //init topbar
-        //TopBar.Init();
+        TopBar.Init();
 	}
 	
 	//render

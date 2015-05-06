@@ -93,7 +93,7 @@ function Graphic() {
         }
         else
         {
-            isPortrait = window.matchMedia("(orientation: portrait)").matches;//size.height < size.width;
+            isPortrait = size.width < size.height;
         }
         
         realWidth = size.width;
