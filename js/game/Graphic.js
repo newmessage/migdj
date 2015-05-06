@@ -8,7 +8,8 @@ const TOP		=	1 << 3;
 const DOWN		=	1 << 4;
 const H_CENTER	=	1 << 5;
 const V_CENTER	=	1 << 6;
-	
+var isPotraitMode = false;
+
 function Graphic() {
     var graphic_scale = 1;
 	var m_userBuffer = true;
@@ -97,7 +98,7 @@ function Graphic() {
         	console.log("DEBUG")
             isPortrait = size.width < size.height;
         }
-        
+        isPotraitMode = isPortrait;
         realWidth = size.width;
         realHeight = size.height;
 
@@ -113,7 +114,7 @@ function Graphic() {
         
         var scale = ScreenDefine.SCALE;
         var input_scale = ScreenDefine.SCALE;
-        
+        console.log("isPortrait: "+isPortrait);
         if(isPortrait)
         {
             scale = canvas.height / ScreenDefine.HEIGHT;
