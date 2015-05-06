@@ -4,7 +4,7 @@
 
 
 const DEBUG                     =   true;
-var SERVER_URL                  =   '';
+var SERVER_URL                  =   'http://ingameads.gameloft.com/ads/adserver/web/fullscreen/templates/minigame/dj/';
 
 var deviceCountry               =   'EN';
 var creative_id                 =   '';
