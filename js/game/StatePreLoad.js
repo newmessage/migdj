@@ -70,6 +70,14 @@ function StatePreLoad()
 	
 	this.Draw = function()
     {
+    	var MOBILE_X_OFFSET = 0;
+
+		if (DEVICE_INFO.OS == DEVICE_OS.ANDROID)
+		{
+		    MOBILE_X_OFFSET = 50;
+		}
+		console.log ("Screen::Device_OS("+DEVICE_OS)
+			
 		if(splash != null)
 			splash.Draw();
 		if(splash_button != null)
@@ -82,12 +90,12 @@ function StatePreLoad()
 				currency_icon.SetPos((Graphic.width >> 1)+ScreenDefine.SPLASH.CURRENCY_ICON_OFFSET_X, ScreenDefine.SPLASH.CURRENCY_ICON_OFFSET_Y + Graphic.GetTextWidth(GetText().SPLASH_TEXT_GET, ScreenDefine.FONT_SIZE_SPLASH));
 				//currency_icon.Draw();
 			}
-            Graphic.DrawString(GetText().SPLASH_TEXT_PLAY, (Graphic.width >> 1) + ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_X, ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_Y, "#FFFFFF", ScreenDefine.FONT_SIZE_NORMAL, V_CENTER, NONE, true);
+            Graphic.DrawString(GetText().SPLASH_TEXT_PLAY, (Graphic.width >> 1) + ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_X + MOBILE_X_OFFSET,, ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_Y, "#FFFFFF", ScreenDefine.FONT_SIZE_NORMAL, V_CENTER, NONE, true);
             Graphic.DrawString(GetText().SPLASH_TEXT_GET, Graphic.width >> 1, ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_Y, "#FFFFFF", ScreenDefine.FONT_SIZE_SPLASH, V_CENTER, NONE, true);
 		}
         else 
         {
-            Graphic.DrawString(GetText().SPLASH_TEXT_PLAY_NO_REWARD, (Graphic.width >> 1) + ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_X, ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_Y, "#FFFFFF", ScreenDefine.FONT_SIZE_NORMAL, V_CENTER, NONE, true);
+            Graphic.DrawString(GetText().SPLASH_TEXT_PLAY_NO_REWARD, (Graphic.width >> 1) + ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_X + MOBILE_X_OFFSET,, ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_Y, "#FFFFFF", ScreenDefine.FONT_SIZE_NORMAL, V_CENTER, NONE, true);
             Graphic.DrawString(GetText().SPLASH_TEXT_GET_NO_REWARD, Graphic.width >> 1, ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_Y, "#FFFFFF", ScreenDefine.FONT_SIZE_SPLASH, V_CENTER, NONE, true);
         }
 

@@ -1,9 +1,13 @@
 
-var MOBILE_X_OFFSET = 0;
-if (DEVICE_INFO.OS == DEVICE_OS.ANDROID)
-{
-    MOBILE_X_OFFSET = 50;
-}
+var DEVICE_OS = {
+    IOS:        0,
+    ANDROID:    1,
+    WP8:        2
+};
+var DEVICE_INFO={
+    OS: 0,
+};
+
 var ScreenNormal={
     IMG: 'img50',
     devicePixelRatio: 1,
@@ -75,14 +79,7 @@ var ScreenPixelRatio2={
 };
 
 
-var DEVICE_OS = {
-    IOS:        0,
-    ANDROID:    1,
-    WP8:        2
-};
-var DEVICE_INFO={
-    OS: 0,
-};
+
 
 var ScreenDefine = ScreenNormal;
 var IOS_WEAK_DEVICE = false;
