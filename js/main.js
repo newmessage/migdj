@@ -80,10 +80,11 @@ function render() {
 		
         //draw debug
         //if(DEBUG)
-            //Graphic.DrawString(VERSION + " " + m_log, 10, 30, "#FFFFFF", 15, LEFT);
+            Graphic.DrawString(VERSION + " " + m_log, 10, 30, "#FFFFFF", 15, LEFT);
         
         //if(DEBUG)
         	Graphic.DrawString("isPotraitMode : " + isPotraitMode, 10, 50, "#FF0000", 50, LEFT);
+        	Graphic.DrawString("image used : " + ScreenDefine.IMG, 10, 80, "#FFFFFF", 40, LEFT);
         //draw input
         Input.Draw();
 		
