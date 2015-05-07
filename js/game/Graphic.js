@@ -267,9 +267,7 @@ function Graphic() {
 			ctx.restore();
 		}
 	};
-    
-    
-	
+    	
     var m_last_size = 0;
 	var m_last_text_width = 0;
 	this.DrawString = function(string, x, y, color, size, anchor, autoAlign, is90) {

@@ -13,7 +13,8 @@ function TopBar()
 	
 		m_button = new Object();
 		m_button.Load(TOPBAR_CLOSE_BTN_LINK + HostImagePath() + "/topBar/close_button.png");
-		m_button.SetPos(Graphic.width + ScreenDefine.TOP_BAR.BUTTON.POSX_PRELOAD, Graphic.height + ScreenDefine.TOP_BAR.BUTTON.POSY_PRELOAD);
+		m_button.SetPos(Graphic.width + ScreenDefine.TOP_BAR.BUTTON.POSX_PRELOAD, 
+						ScreenDefine.TOP_BAR.BUTTON.POSY_PRELOAD + 100);
 		m_button.SetAnchor(H_CENTER|V_CENTER);
 		m_button.SetScale(1, 1);
 		

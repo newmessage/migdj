@@ -79,11 +79,11 @@ function render() {
             Graphic.DrawString("fps: " + fps.toFixed(0), Graphic.width - 10, 30, "#FF0000", 30, RIGHT);
 		
         //draw debug
-        if(DEBUG)
+        //if(DEBUG)
             //Graphic.DrawString(VERSION + " " + m_log, 10, 30, "#FFFFFF", 15, LEFT);
         
-        if(DEBUG)
-        	Graphic.DrawString("isPotraitMode : " + isPotraitMode, 10, 30, "#FFFFFF", 30, LEFT);
+        //if(DEBUG)
+        	Graphic.DrawString("isPotraitMode : " + isPotraitMode, 10, 50, "#FF0000", 50, LEFT);
         //draw input
         Input.Draw();
 		

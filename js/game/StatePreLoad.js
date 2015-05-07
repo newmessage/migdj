@@ -6,7 +6,8 @@ function StatePreLoad()
 	var splash = null;
 	var splash_button = null;
 	var currency_icon = null;
-	
+	var MOBILE_X_OFFSET = 50;
+
 	this.PreLoadData = function() 
     {
         StateLoading.LoadData();
@@ -25,9 +26,13 @@ function StatePreLoad()
 		splash_button.Load(SPLASH_BTN_LINK + HostImagePath() + "/bg/splash_btn_"+ GAME_COUNTRY.language +".jpg");
         splash_button.SetPos(Graphic.width >> 1, Graphic.height >> 1);
 		splash_button.SetAnchor(H_CENTER|V_CENTER);
-		splash_button.SetPos(ScreenDefine.SPLASH.BUTTON_OFFSET_X, (Graphic.height >> 1) + ScreenDefine.SPLASH.BUTTON_OFFSET_Y);
-		splash_button.SetRotate(90);
-		
+		splash_button.SetPos(ScreenDefine.SPLASH.BUTTON_OFFSET_X + (MOBILE_X_OFFSET*7),
+								(Graphic.height >> 1) + ScreenDefine.SPLASH.BUTTON_OFFSET_Y);
+		//No orientation if Android
+		if (DEVICE_INFO.OS == DEVICE_OS.ANDROID && !isPotraitMode)
+		{
+			splash_button.SetRotate(90);	
+		}
 		currency_icon = new Object();
 		currency_icon.Load(CURRENCY_ICO_LINK + HostImagePath() + "/button/currency_icon_large.png");
 		currency_icon.SetAnchor(H_CENTER|V_CENTER);
@@ -61,10 +66,12 @@ function StatePreLoad()
         	// link = '';
 
         	//call_client(creative_id, 'GLADS_CLICK_INTERSTITIAL', 'click', 0, area_id, '', link);
+            /* //Removing Intersistial
             if (!DEBUG)
             {
                 call_client(creative_id, 'GLADS_CLICK_INTERSTITIAL', 'click', 0, 0, '', '');
             }
+            */
 
         	console.log('Click Tracked');
 
@@ -78,11 +85,12 @@ function StatePreLoad()
 	
 	this.Draw = function()
     {
-    	var MOBILE_X_OFFSET = 0;
+    	var rotateText = true;
 
 		if (DEVICE_INFO.OS == DEVICE_OS.ANDROID)
 		{
 		    MOBILE_X_OFFSET = 50;
+		    rotateText = false;
 		}
 		console.log ("Screen::Device_OS("+DEVICE_INFO.OS+")");
 			
@@ -91,6 +99,7 @@ function StatePreLoad()
 		if(splash_button != null)
 			splash_button.Draw();
 
+		/* // YOYO : reward is removed, thus this also not being used anymore
 		if (creative_type_id == 27 || creative_type_id == '27')
 		{
 			console.log ("creative_type_id : "+creative_type_id)
@@ -103,9 +112,19 @@ function StatePreLoad()
             Graphic.DrawString(GetText().SPLASH_TEXT_GET, Graphic.width >> 1, ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_Y, "#FFFFFF", ScreenDefine.FONT_SIZE_SPLASH, V_CENTER, NONE, true);
 		}
         else 
+        */
         {
-            Graphic.DrawString(GetText().SPLASH_TEXT_PLAY_NO_REWARD, (Graphic.width >> 1) + ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_X + MOBILE_X_OFFSET, ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_Y, "#FFFFFF", ScreenDefine.FONT_SIZE_NORMAL, V_CENTER, NONE, true);
-            Graphic.DrawString(GetText().SPLASH_TEXT_GET_NO_REWARD, Graphic.width >> 1, ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_Y, "#FFFFFF", ScreenDefine.FONT_SIZE_SPLASH, V_CENTER, NONE, true);
+        	if (DEVICE_INFO.OS == DEVICE_OS.ANDROID)
+        	{
+        		Graphic.DrawString(GetText().SPLASH_TEXT_PLAY_NO_REWARD, (Graphic.width >> 1) + ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_X - (MOBILE_X_OFFSET * 9), ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_Y + (MOBILE_X_OFFSET * 5), "#FFFFFF", ScreenDefine.FONT_SIZE_NORMAL, V_CENTER, NONE, rotateText);
+            	Graphic.DrawString(GetText().SPLASH_TEXT_GET_NO_REWARD, (Graphic.width >> 1) + ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_X - (MOBILE_X_OFFSET * 9), ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_Y + ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_X + (MOBILE_X_OFFSET * 5) , "#FFFFFF", ScreenDefine.FONT_SIZE_SPLASH, V_CENTER, NONE, rotateText);
+        	}
+        	else
+        	{
+
+        		Graphic.DrawString(GetText().SPLASH_TEXT_PLAY_NO_REWARD, (Graphic.width >> 1) + ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_X, ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_Y, "#FFFFFF", ScreenDefine.FONT_SIZE_NORMAL, V_CENTER, NONE, rotateText);
+            	Graphic.DrawString(GetText().SPLASH_TEXT_GET_NO_REWARD, Graphic.width >> 1, ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_Y, "#FFFFFF", ScreenDefine.FONT_SIZE_SPLASH, V_CENTER, NONE, rotateText);
+        	}
         }
 
 		TopBar.Draw();

@@ -103,7 +103,7 @@ function InitScreenDefine(width, height)
                 USE_OPTMZ_FOR_WEAK_DEVICE = true;
                 REMOVE_GLOW_EFFECT = false;
                 USE_TEXT_COLOR = true;
-                Utility.log("IOS device: <= iphone 4");
+                Utility.log("Device is : IOS<= iphone 4");
             }
             else 
             {
@@ -116,7 +116,7 @@ function InitScreenDefine(width, height)
                 {
                     ScreenDefine.devicePixelRatio = window.devicePixelRatio;
                 }
-                Utility.log("IOS device: > iphone 4");
+                Utility.log("Device is : IOS > iphone 4");
             }
         }
         DEVICE_INFO.OS = DEVICE_OS.IOS;
@@ -130,7 +130,6 @@ function InitScreenDefine(width, height)
     else if(navigator.userAgent.indexOf('Android') != -1)
     {
         
-
         DEVICE_INFO.OS = DEVICE_OS.ANDROID;
         //force devicePixelRatio to 1
         ScreenDefine = ScreenPixelRatio2;
@@ -152,7 +151,7 @@ function InitScreenDefine(width, height)
         var value = navigator.userAgent.match(/Android\s([0-9\.]*)/);
         if(value.length > 0)
         {
-            Utility.log("Android version: "+value[1]);
+            Utility.log("Device is Android version: "+value[1]);
             if(value[1] < '5')
             {
                 USE_OPTMZ_FOR_WEAK_DEVICE   =   true;
@@ -166,10 +165,12 @@ function InitScreenDefine(width, height)
         DEVICE_INFO.OS = DEVICE_OS.WP8;
         ScreenDefine = ScreenPixelRatio2;
         ScreenDefine.devicePixelRatio = 1;
+        console.log("Device is Windows")
     }
     
     //SetLog(width+"x"+height +"x"+window.devicePixelRatio+"x"+ScreenDefine.devicePixelRatio);
-    
+    console.log("ScreenDefine : "+ String(ScreenDefine.IMG));
+
     if(USE_OPTMZ_FOR_WEAK_DEVICE)
     {
         //MUSIC_NOTE_OPT: {POSX: [112, 145, 175, 240], POSY: -185, POSX_OFFSET: [-3.5, -1.5, 0.5, 4], NOTE_DISTANCE: 20, NOTE_OFFSET_Y: 70, BUTTON_EFFECT: {FRAME_WIDTH: 36,FRAME_HEIGHT: 44, POSX_OFFSET: -70, POSY_OFFSET: -120}},
@@ -179,6 +180,8 @@ function InitScreenDefine(width, height)
         ScreenDefine.MUSIC_NOTE.NOTE_DISTANCE   = ScreenDefine.MUSIC_NOTE_OPT.NOTE_DISTANCE;
         ScreenDefine.MUSIC_NOTE.NOTE_OFFSET_Y   = ScreenDefine.MUSIC_NOTE_OPT.NOTE_OFFSET_Y;
     }
+
+
 }
 
 function HostImagePath()
