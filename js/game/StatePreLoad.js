@@ -116,8 +116,8 @@ function StatePreLoad()
         {
         	if (DEVICE_INFO.OS == DEVICE_OS.ANDROID)
         	{
-        		Graphic.DrawString(GetText().SPLASH_TEXT_PLAY_NO_REWARD, (Graphic.width >> 1) + ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_X - (MOBILE_X_OFFSET * 9), ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_Y + (MOBILE_X_OFFSET * 5), "#FFFFFF", ScreenDefine.FONT_SIZE_NORMAL, V_CENTER, NONE, rotateText);
-            	Graphic.DrawString(GetText().SPLASH_TEXT_GET_NO_REWARD, (Graphic.width >> 1) + ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_X - (MOBILE_X_OFFSET * 9), ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_Y + ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_X + (MOBILE_X_OFFSET * 5) , "#FFFFFF", ScreenDefine.FONT_SIZE_SPLASH, V_CENTER, NONE, rotateText);
+        		Graphic.DrawString(GetText().SPLASH_TEXT_PLAY_NO_REWARD, (Graphic.width >> 1) + ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_X - (MOBILE_X_OFFSET * 9), ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_Y , "#FFFFFF", ScreenDefine.FONT_SIZE_NORMAL, V_CENTER, NONE, rotateText);
+            	Graphic.DrawString(GetText().SPLASH_TEXT_GET_NO_REWARD, (Graphic.width >> 1) + ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_X - (MOBILE_X_OFFSET * 9), ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_Y + ScreenDefine.SPLASH.TEXT_PLAY_OFFSET_X  , "#FFFFFF", ScreenDefine.FONT_SIZE_SPLASH, V_CENTER, NONE, rotateText);
         	}
         	else
         	{
